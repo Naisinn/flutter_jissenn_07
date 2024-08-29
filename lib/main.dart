@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/riverpod.dart';
+
+part 'main.g.dart';
+
+@riverpod
+String greet(GreetRef ref) {
+  return 'Hello World!!';
+}
 
 final greetProvider = Provider((ref) {
   return 'Hello, Flutter!!';
-}); // ❶
+});
 
 class HomePage extends ConsumerWidget { // ❷
   const HomePage({super.key});
@@ -54,7 +62,11 @@ class MyHomePage extends ConsumerWidget {
   }
 }
 
-class CounterNotifier extends Notifier<int> {
+
+part 'main.g.dart';
+
+@riverpod
+class CounterNotifier extends _$CounterNotifier {
   @override
   int build() => 0;
 
